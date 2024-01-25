@@ -1,0 +1,11 @@
+.dark-mode{
+    background-color: black;
+    color: white;
+}
+.white-mode{
+    background-color: white;
+    color: black;
+}
+.logo {
+    width: 2.5rem;
+}

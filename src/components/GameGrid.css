@@ -1,0 +1,25 @@
+.card_img{
+    width: 12rem;
+    height: 9rem;
+    object-fit: cover;
+}
+
+.image_responsive{
+    /* width: 20%;
+    height: auto; */
+    object-fit: cover;
+}
+
+/* .transparent_background{
+    background-color: rgba(244, 244, 244,0.5);
+} */
+
+.c_shadow{
+    box-shadow: 10px 8px 20px rgb(181, 181, 181);
+}
+
+@media (max-width:575px){
+    .card_img{
+        height: 15rem;
+    }
+}
