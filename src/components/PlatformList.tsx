@@ -5,7 +5,8 @@ interface Props {
 }
 
 const PlatformList = ({onPlatform}:Props) => {
-    const {data} = usePlatforms(null)
+    const {data,error} = usePlatforms(null)
+    if (error) return null;
 
     return(
             <select className="form-select w-25 bg-secondary-subtle mx-4" onChange={(event)=>onPlatform(parseInt(event.target.value))}>
