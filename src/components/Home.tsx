@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavBar from "./NavBar";
 import GameGrid from "./GameGrid";
 import './Home.css'
+import GenresList from "./GenresList";
 
 const Exercise = () => {
     const [DarkMode,setDarkMode] = useState(false)
@@ -17,7 +18,9 @@ const Exercise = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-auto d-none d-lg-block">side</div>
+                    <div className="col-auto d-none d-lg-block my-5">
+                        <GenresList />
+                    </div>
                     <div className="col">
                         <GameGrid />
                     </div>

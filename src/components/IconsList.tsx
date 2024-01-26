@@ -1,4 +1,4 @@
-import { plateforms } from "./GameGrid";
+import { plateforms } from "../hooks/useGames";
 import {FaWindows,FaPlaystation,FaXbox,FaApple,FaLinux,FaAndroid} from 'react-icons/fa'
 import {MdPhoneIphone} from 'react-icons/md'
 import {SiNintendo} from 'react-icons/si'
@@ -32,7 +32,7 @@ const IconsList = ({platforms}:platforms) => {
       };
     return(
         <div className="d-flex">
-            {platforms.map(p => <p className="opacity-75 m-0 p-0"><GamePlatformIcon platform={p.platform.slug}/></p>)}
+            {platforms.map(p => <p className="opacity-75 m-0 p-0" key={p.platform.id}><GamePlatformIcon platform={p.platform.slug}/></p>)}
         </div>
     );
 }

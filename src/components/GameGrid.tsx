@@ -1,53 +1,29 @@
-import { useEffect, useState } from 'react'
-import apiService from '../services/api-client'
+import useGames from '../hooks/useGames'
 import './GameGrid.css'
 import IconsList from './IconsList'
 import MetaCritic from './MetaCritic'
 import GetCropImage from '../services/GetCropImage'
-
-export interface plateforms {
-    platform:{
-        name:string,
-        slug:string
-    }
-}
-
-interface Games {
-    id:number,
-    name:string,
-    background_image:string,
-    metacritic:number
-    parent_platforms:plateforms[]
-}
-
-interface GamesGroup {
-    count:number,
-    results:Games[]
-}
+import Skeleton from './Skeleton'
 
 const GameGrid = () => {
-    const [games,setGames] = useState<Games[]>([])
-    const [error,setError] = useState('')
-
-    useEffect(()=>{
-        apiService.get<GamesGroup>('/games',)
-            .then(res=>setGames(res.data.results))
-            .catch(err => setError(err.message))
-    },[games])
+    const {data,error,loading} = useGames()
+    const values = [1,2,3,4,5,6,7,8,9]
+   
     return(
-        <>
+        <>  
+            {loading && <Skeleton values={values}/>}
             {error && <p>{error}</p>}
             <div className="container">
-                <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-5 my-0">
-                    {games.map(game => 
-                        <div className="col">
-                            <div className='card border border-0 c_shadow'>
-                                <img src={GetCropImage(game.background_image)} alt="" className='card-img-top'/>
+                <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-md-5 g-3 my-0">
+                    {data.map(data => 
+                        <div className="col" key={data.id}>
+                            <div className='card border border-0 c_shadow overflow-hidden'>
+                                <img src={GetCropImage(data.background_image)} alt="" className='card-img-top'/>
                                 <div className="card-body rounded transparent_background">
-                                    <p className="card-title">{game.name}</p>
+                                    <p className="card-title">{data.name}</p>
                                     <div className="m-0 p-0 d-flex justify-content-between">
-                                        <IconsList platforms={game.parent_platforms}/>
-                                        <MetaCritic critic={game.metacritic}/>
+                                        <IconsList platforms={data.parent_platforms}/>
+                                        <MetaCritic critic={data.metacritic}/>
                                     </div>
                                 </div>
                             </div>
