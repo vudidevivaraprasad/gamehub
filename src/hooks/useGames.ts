@@ -17,8 +17,8 @@ interface Games {
     parent_platforms:plateforms[]
 }
 
-const useGames = (selectedGenre:Genre|null) => {
-    return useData<Games>('/games',{params:{genres:selectedGenre?.id}},[selectedGenre?.id])
+const useGames = (selectedGenre?:Genre|null,platform_id?:number|null) => {
+    return useData<Games>('/games',{params:{genres:selectedGenre?.id,platforms:platform_id}},[selectedGenre?.id,platform_id])
 }
 
 export default useGames

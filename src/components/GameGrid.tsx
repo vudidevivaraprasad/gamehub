@@ -6,8 +6,13 @@ import GetCropImage from '../services/GetCropImage'
 import Skeleton from './Skeleton'
 import { Genre } from '../hooks/useGenres'
 
-const GameGrid = ({selectedGenre}:{selectedGenre:Genre|null}) => {
-    const {data,error,loading} = useGames(selectedGenre)
+interface Props{
+    selectedGenre:Genre|null,
+    platform_id:number|null
+}
+
+const GameGrid = ({selectedGenre,platform_id}:Props) => {
+    const {data,error,loading} = useGames(selectedGenre,platform_id)
     const values = [1,2,3,4,5,6,7,8,9]
    
     return(
