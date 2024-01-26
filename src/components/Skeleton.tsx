@@ -1,7 +1,7 @@
 const Skeleton = ({values}:{values:number[]}) => {
     return(
         <div className="container">
-            <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-md-5 g-3 my-0">
+            <div className="row row-cols-md-3 row-cols-2 g-md-5 g-3 my-0">
                 {values.map(value => 
                     <div className="col" key={value}>
                         <div className="card overflow-hidden" aria-hidden="true" style={{boxShadow: "10px 8px 20px rgb(181, 181, 181)"}}>

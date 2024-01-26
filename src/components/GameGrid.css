@@ -10,9 +10,9 @@
     object-fit: cover;
 }
 
-/* .transparent_background{
-    background-color: rgba(244, 244, 244,0.5);
-} */
+.transparent_background{
+    background-color: transparent;
+}
 
 .c_shadow{
     box-shadow: 10px 8px 20px rgb(181, 181, 181);

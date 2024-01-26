@@ -1,8 +1,8 @@
-import Exercise from "./components/Home"
+import Home from "./components/Home"
 
 const App = () => {
   return(
-    <Exercise />
+    <Home />
   )
 }
 

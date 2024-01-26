@@ -1,6 +1,10 @@
-.c_black{
-    background-color: rgb(38, 38, 38);
-    color: white;
+.black-mode{
+    background-color: black;
+    color: white !important;
+}
+.light-mode{
+    background-color: white;
+    color: black !important;
 }
 .custom_width {
     max-width: 100% !important;

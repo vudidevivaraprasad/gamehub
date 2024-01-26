@@ -1,12 +1,9 @@
 const Loading = () => {
     return(
-        <div className="card" aria-hidden="true">
-        <div className="card-body">
-            <h5 className="card-title placeholder-glow">
-            <span className="placeholder col-6"></span>
-            </h5>
-            
-        </div>
+        <div className="d-flex justify-content-center align-items-center">
+            <div className="spinner-border" role="status">
+            <span className="visually-hidden"></span>
+                  </div>
         </div>
     )
 }
