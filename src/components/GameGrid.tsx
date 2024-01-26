@@ -14,7 +14,7 @@ const GameGrid = () => {
             {loading && <Skeleton values={values}/>}
             {error && <p>{error}</p>}
             <div className="container">
-                <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2 g-md-5 g-3 my-0">
+                <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2 gx-md-4 gy-5 g-3 my-0">
                     {data.map(data => 
                         <div className="col" key={data.id}>
                             <div className='card border border-0 c_shadow overflow-hidden'>

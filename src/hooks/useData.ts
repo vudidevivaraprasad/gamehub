@@ -13,7 +13,7 @@ const useData = <T>(endpoint:string) => {
 
     useEffect(()=>{
         apiService.get<Data<T>>(endpoint)
-            .then(res=>{setData(res.data.results);setLoading(false)})
+            .then(res=>{setData(res.data.results);setLoading(false);setError('')})
             .catch(err =>{setError(err.message);setLoading(false)})
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])

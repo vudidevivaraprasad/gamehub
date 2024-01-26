@@ -6,8 +6,8 @@ interface Props{
 }
 const NavBar = ({ChangeMode}:Props) => {
     return(
-        <div className="d-flex justify-content-between">
-            <img src={logo} alt="logo" className='logo'/>
+        <div className="d-flex justify-content-between align-items-center">
+            <img src={logo} alt="logo" style={{height:"4rem"}} />
             <Mode_switcher click={ChangeMode}/>
         </div>
     )

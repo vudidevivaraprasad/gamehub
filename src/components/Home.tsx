@@ -11,14 +11,14 @@ const Exercise = () => {
     }
     return(
         <>
-            <div className={`container-xxl custom_width ${DarkMode?'dark-mode':'white-mode'}`}>
+            <div className={`container-xxl custom_width ${DarkMode?'c_black':'white-mode'}`}>
                 <div className="row">
                     <div className="col-12">
                         <NavBar ChangeMode={changeMode}/>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-auto d-none d-lg-block my-5">
+                    <div className="col-auto d-none d-lg-block my-2">
                         <GenresList />
                     </div>
                     <div className="col">
