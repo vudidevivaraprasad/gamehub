@@ -4,15 +4,11 @@ import IconsList from './IconsList'
 import MetaCritic from './MetaCritic'
 import GetCropImage from '../services/GetCropImage'
 import Skeleton from './Skeleton'
-import { Genre } from '../hooks/useGenres'
+import { GameQuery } from './Home'
 
-interface Props{
-    selectedGenre:Genre|null,
-    platform_id:number|null
-}
 
-const GameGrid = ({selectedGenre,platform_id}:Props) => {
-    const {data,error,loading} = useGames(selectedGenre,platform_id)
+const GameGrid = ({gamequery}:{gamequery:GameQuery}) => {
+    const {data,error,loading} = useGames(gamequery)
     const values = [1,2,3,4,5,6,7,8,9]
    
     return(

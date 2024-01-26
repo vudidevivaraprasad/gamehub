@@ -6,10 +6,14 @@ import GenresList from "./GenresList";
 import { Genre } from "../hooks/useGenres";
 import PlatformList from "./PlatformList";
 
+export interface GameQuery {
+    genre:Genre | null,
+    platform_id:number | null
+}
+
 const Home = () => {
     const [DarkMode,setDarkMode] = useState(false)
-    const [selectedGenre,setSelectedGenre] = useState<Genre | null>(null)
-    const [selectedPlatform_id,setSelectedPlatform_id] = useState<number | null>(null)
+    const [gameQuery,setGameQuery] = useState<GameQuery>({} as GameQuery)
 
     const changeMode = (value:boolean) => {
         setDarkMode(value)
@@ -24,11 +28,11 @@ const Home = () => {
                 </div>
                 <div className="row">
                     <div className="col-2 d-none d-lg-block my-2">
-                        <GenresList selectedGenre={selectedGenre} color={DarkMode?"white":"black"} onSelectedGenre={(genre)=>setSelectedGenre(genre)}/>
+                        <GenresList selectedGenre={gameQuery.genre} color={DarkMode?"white":"black"} onSelectedGenre={(genre)=>setGameQuery({...gameQuery,genre})}/>
                     </div>
                     <div className="col py-md-4 py-2">
-                        <PlatformList onPlatform={(platform_id)=>{setSelectedPlatform_id(platform_id)}}/>
-                        <GameGrid selectedGenre={selectedGenre} platform_id={selectedPlatform_id}/>
+                        <PlatformList onPlatform={(platform_id)=>{setGameQuery({...gameQuery,platform_id})}}/>
+                        <GameGrid gamequery={gameQuery}/>
                     </div>
                 </div>
             </div>

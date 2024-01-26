@@ -1,5 +1,5 @@
+import { GameQuery } from "../components/Home"
 import useData from "./useData"
-import { Genre } from "./useGenres"
 
 export interface plateforms {
     platform:{
@@ -17,8 +17,8 @@ interface Games {
     parent_platforms:plateforms[]
 }
 
-const useGames = (selectedGenre?:Genre|null,platform_id?:number|null) => {
-    return useData<Games>('/games',{params:{genres:selectedGenre?.id,platforms:platform_id}},[selectedGenre?.id,platform_id])
+const useGames = (gamequery:GameQuery) => {
+    return useData<Games>('/games',{params:{genres:gamequery.genre?.id,platforms:gamequery.platform_id}},[gamequery])
 }
 
 export default useGames
