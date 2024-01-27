@@ -9,6 +9,12 @@
     background-image: linear-gradient(to right,rgba(227, 227, 227,0.9),rgba(227, 227, 227,0.95),rgba(227, 227, 227,1),rgb(227, 227, 227));
 }
 
+.custom-input:focus{
+    outline: none !important;
+    box-shadow: transparent !important;
+    border-color: transparent !important;
+}
+
 
 
 @media (max-width:800px){

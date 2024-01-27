@@ -10,7 +10,8 @@ import SortList from "./SortList";
 export interface GameQuery {
     genre:Genre | null,
     platform_id:number | null,
-    sort:string | null
+    sort:string | null,
+    search:string | null
 }
 
 const Home = () => {
@@ -25,7 +26,7 @@ const Home = () => {
             <div className={`container-xxl custom_width ${DarkMode?'black-mode':'light-mode'}`}>
                 <div className="row">
                     <div className="col-12">
-                        <NavBar ChangeMode={changeMode}/>
+                        <NavBar ChangeMode={changeMode} onSearch={(text)=>setGameQuery({...gameQuery,search:text})}/>
                     </div>
                 </div>
                 <div className="row">

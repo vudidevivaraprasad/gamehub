@@ -1,4 +1,4 @@
-import './CustomSelect.css'
+import './Custom.css'
 
 interface Props{
     onSort:(name:string) => void
