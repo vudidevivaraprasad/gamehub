@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useGenres, { Genre } from "../hooks/useGenres"
 import Loading from "./Loading";
 
