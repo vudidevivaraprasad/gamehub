@@ -25,8 +25,9 @@ const GenresList = ({selectedGenre,color,onSelectedGenre}:Props) => {
     if (error) return null;
     return(
         <>  
+            <h1 className="text-nowrap display-6 fw-semibold mt-3 mx-2">Genres</h1>
             {loading && <Loading />}
-            <div className="py-3 px-2">
+            <div className="py-1 px-2">
                 {data.map(genre =>
                     <div className="d-flex py-2" key={genre.id}>
                         <img src={genre.image_background} alt="" style={{width:"45px",height:"30px",borderRadius:"7px"}}/>

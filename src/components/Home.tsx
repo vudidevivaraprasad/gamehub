@@ -34,7 +34,7 @@ const Home = () => {
                     <div className="col-2 d-none d-lg-block my-2">
                         <GenresList selectedGenre={gameQuery.genre} color={DarkMode?"white":"black"} onSelectedGenre={(genre)=>setGameQuery({...gameQuery,genre})}/>
                     </div>
-                    <div className="col py-md-4 py-2">
+                    <div className="col py-md-5 py-2">
                         <Heading gamequery={gameQuery}/>
                         <div className="d-flex">
                             <PlatformList onPlatform={(platform_id)=>{setGameQuery({...gameQuery,platform_id})}}/>
