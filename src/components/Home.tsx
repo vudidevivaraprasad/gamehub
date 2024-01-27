@@ -6,7 +6,7 @@ import GenresList from "./GenresList";
 import { Genre } from "../hooks/useGenres";
 import PlatformList from "./PlatformList";
 import SortList from "./SortList";
-import GameHeading from "./GameHeading";
+import Heading from "./GameHeading";
 
 export interface GameQuery {
     genre:Genre | null,
@@ -35,7 +35,7 @@ const Home = () => {
                         <GenresList selectedGenre={gameQuery.genre} color={DarkMode?"white":"black"} onSelectedGenre={(genre)=>setGameQuery({...gameQuery,genre})}/>
                     </div>
                     <div className="col py-md-4 py-2">
-                        <GameHeading gamequery={gameQuery}/>
+                        <Heading gamequery={gameQuery}/>
                         <div className="d-flex">
                             <PlatformList onPlatform={(platform_id)=>{setGameQuery({...gameQuery,platform_id})}}/>
                             <SortList onSort={(name)=>setGameQuery({...gameQuery,sort:name})}/>
