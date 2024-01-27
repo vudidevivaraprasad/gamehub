@@ -5,10 +5,12 @@ import './Home.css'
 import GenresList from "./GenresList";
 import { Genre } from "../hooks/useGenres";
 import PlatformList from "./PlatformList";
+import SortList from "./SortList";
 
 export interface GameQuery {
     genre:Genre | null,
-    platform_id:number | null
+    platform_id:number | null,
+    sort:string | null
 }
 
 const Home = () => {
@@ -31,7 +33,10 @@ const Home = () => {
                         <GenresList selectedGenre={gameQuery.genre} color={DarkMode?"white":"black"} onSelectedGenre={(genre)=>setGameQuery({...gameQuery,genre})}/>
                     </div>
                     <div className="col py-md-4 py-2">
-                        <PlatformList onPlatform={(platform_id)=>{setGameQuery({...gameQuery,platform_id})}}/>
+                        <div className="d-flex">
+                            <PlatformList onPlatform={(platform_id)=>{setGameQuery({...gameQuery,platform_id})}}/>
+                            <SortList onSort={(name)=>setGameQuery({...gameQuery,sort:name})}/>
+                        </div>
                         <GameGrid gamequery={gameQuery}/>
                     </div>
                 </div>

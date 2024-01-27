@@ -1,0 +1,30 @@
+.custom_select::after{
+    content: "hello...";
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    pointer-events: none;
+    color: transparent;
+    box-shadow: -10px 0px 15px  rgb(227, 227, 227);
+    background-image: linear-gradient(to right,rgba(227, 227, 227,0.9),rgba(227, 227, 227,0.95),rgba(227, 227, 227,1),rgb(227, 227, 227));
+}
+
+
+
+@media (max-width:800px){
+    .custom_select::after{
+        content:"hello"
+    }
+}
+
+@media (max-width:550px){
+    .custom_select::after{
+        content:"hel"
+    }
+}
+
+@media (max-width:450px){
+    .custom_select::after{
+        content:"he"
+    }
+}
