@@ -2,7 +2,8 @@ import useData from "./useData"
 
 export interface Platforms{
     id:number,
-    name:string
+    name:string,
+    slug:string
 }
 
 const usePlatforms = (platform_id:number|null) => {
