@@ -31,7 +31,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-2 d-none d-lg-block my-2">
+                    <div className="col-2 my-2">
                         <GenresList selectedGenre={gameQuery.genre} color={DarkMode?"white":"black"} onSelectedGenre={(genre)=>setGameQuery({...gameQuery,genre})}/>
                     </div>
                     <div className="col py-md-5 py-2">
