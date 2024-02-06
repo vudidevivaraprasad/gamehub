@@ -21,14 +21,14 @@ const GenresList = ({selectedGenre,color,onSelectedGenre}:Props) => {
         textOverflow: 'ellipsis',
       };
 
-    const {data,error,loading} = useGenres()
+    const {data,error,isLoading} = useGenres()
     if (error) return null;
     return(
         <>  
             <h1 className="text-nowrap display-6 fw-semibold mt-3 mx-2">Genres</h1>
-            {loading && <Loading />}
+            {isLoading && <Loading />}
             <div className="py-1 px-2">
-                {data.map(genre =>
+                {data?.map(genre =>
                     <div className="d-flex py-2" key={genre.id}>
                         <img src={genre.image_background} alt="" style={{width:"45px",height:"30px",borderRadius:"7px"}}/>
                         <button className={`px-2 fw-medium ${selectedGenre?.id===genre.id?"fw-bolder":""}`} style={buttonStyle} onClick={()=>onSelectedGenre(genre)}>{genre.name}</button>

@@ -8,16 +8,16 @@ import { GameQuery } from './Home'
 
 
 const GameGrid = ({gamequery}:{gamequery:GameQuery}) => {
-    const {data,error,loading} = useGames(gamequery)
+    const {data,error,isLoading} = useGames(gamequery)
     const values = [1,2,3,4,5,6,7,8,9]
    
     return(
         <>  
-            {loading && <Skeleton values={values}/>}
-            {error && <p>{error}</p>}
+            {isLoading && <Skeleton values={values}/>}
+            {error && <p>{error.message}</p>}
             <div className="container">
                 <div className="row row-cols-md-3 row-cols-2 gx-md-4 gy-5 g-3 my-0">
-                    {data.map(data => 
+                    {data?.map(data => 
                         <div className="col" key={data.id}>
                             <div className='card border border-0 c_shadow overflow-hidden'>
                                 <img src={GetCropImage(data.background_image)} alt="" className='card-img-top'/>
