@@ -2,12 +2,12 @@ import useGenres, { Genre } from "../hooks/useGenres"
 import Loading from "./Loading";
 
 interface Props {
-    selectedGenre:Genre|null
+    selectedGenreId:number|null
     color:string,
     onSelectedGenre:(genre:Genre) => void
 }
 
-const GenresList = ({selectedGenre,color,onSelectedGenre}:Props) => {
+const GenresList = ({selectedGenreId,color,onSelectedGenre}:Props) => {
     const buttonStyle = {
         background: 'none',
         border: 'none',
@@ -31,7 +31,7 @@ const GenresList = ({selectedGenre,color,onSelectedGenre}:Props) => {
                 {data?.map(genre =>
                     <div className="d-flex py-2" key={genre.id}>
                         <img src={genre.image_background} alt="" style={{width:"45px",height:"30px",borderRadius:"7px"}}/>
-                        <button className={`px-2 fw-medium ${selectedGenre?.id===genre.id?"fw-bolder":""}`} style={buttonStyle} onClick={()=>onSelectedGenre(genre)}>{genre.name}</button>
+                        <button className={`px-2 fw-medium ${selectedGenreId===genre.id?"fw-bolder":""}`} style={buttonStyle} onClick={()=>onSelectedGenre(genre)}>{genre.name}</button>
                     </div>
                     )}
             </div>

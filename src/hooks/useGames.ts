@@ -22,7 +22,7 @@ interface Games {
 const useGames = (gamequery:GameQuery) => {
     return useQuery({
         queryKey:["games",gamequery],
-        queryFn:() => apiClient.get<FetchResponse<Games>>('/games',{params:{genres:gamequery.genre?.id,parent_platforms:gamequery.platform_id,ordering:gamequery.sort,search:gamequery.search}})
+        queryFn:() => apiClient.get<FetchResponse<Games>>('/games',{params:{genres:gamequery.genreId,parent_platforms:gamequery.platform_id,ordering:gamequery.sort,search:gamequery.search}})
                                 .then(res=> res.data.results)
     })
     // return useData<Games>('/games',{params:{genres:gamequery.genre?.id,parent_platforms:gamequery.platform_id,ordering:gamequery.sort,search:gamequery.search}},[gamequery])

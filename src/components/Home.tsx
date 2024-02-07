@@ -3,13 +3,12 @@ import NavBar from "./NavBar";
 import GameGrid from "./GameGrid";
 import './Home.css'
 import GenresList from "./GenresList";
-import { Genre } from "../hooks/useGenres";
 import PlatformList from "./PlatformList";
 import SortList from "./SortList";
 import Heading from "./GameHeading";
 
 export interface GameQuery {
-    genre:Genre | null,
+    genreId:number | null,
     platform_id:number | null,
     sort:string | null,
     search:string | null
@@ -32,7 +31,7 @@ const Home = () => {
                 </div>
                 <div className="row">
                     <div className="col-2 d-none d-lg-block my-2">
-                        <GenresList selectedGenre={gameQuery.genre} color={DarkMode?"white":"black"} onSelectedGenre={(genre)=>setGameQuery({...gameQuery,genre})}/>
+                        <GenresList selectedGenreId={gameQuery.genreId} color={DarkMode?"white":"black"} onSelectedGenre={(genre)=>setGameQuery({...gameQuery,genreId:genre.id})}/>
                     </div>
                     <div className="col py-md-5 py-2">
                         <Heading gamequery={gameQuery}/>
